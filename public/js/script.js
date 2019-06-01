@@ -123,3 +123,10 @@
     form2.addEventListener('submit', onSubmit);
 
 })();
+
+function getText() {
+
+    var text = document.getElementById('fake').value; 
+    document.getElementById('path-input').value = "/api/name/" + text;
+
+}

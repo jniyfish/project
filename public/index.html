@@ -55,6 +55,7 @@ your address book</p>
         </header>
         <section class="gif">
           <p id=input> </p>
+          <input type="text" id="fake" style="border: 3px #FFAC55 solid" onchange="getText()"/>
           <h1>Friend List:</h1>
           <pre id="NameList"></pre>
           <p class="inactive">
@@ -63,8 +64,8 @@ your address book</p>
         </section>
 
       <form>
-            <input type="text"  id="path-input" value="/api" />
-            <select id="method-input" >
+            <input type="text"  id="path-input" value="/api" class="inactive"/>
+            <select id="method-input" class="inactive">
               <option id="GET">GET</option>
               <option id="DELETE">DELETE</option>
               <option id="POST">POST</option>

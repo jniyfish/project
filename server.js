@@ -82,8 +82,20 @@ async function onPost(req, res) {
   }
   else{
   }
-  sheet.appendRow(newrow);
+  await sheet.appendRow(newrow);
   console.log(newrow);
+  const result2 = await sheet.getRows();
+  const rows2 = result2.rows;
+  var array = [];
+
+  for (var i = 1; i < rows2.length; i++) {
+    let json = {};
+    for (var j = 0; j < rows2[0].length; j++) {
+      json[rows2[0][j]] = rows2[i][j];
+    }
+    array.push(json);;
+  }
+  res.json(array);
 
 }
 app.post('/api', jsonParser, onPost);

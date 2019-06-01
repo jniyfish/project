@@ -68,6 +68,7 @@ class EditMenu {
     this.containerElement.classList.remove('inactive');
     if (input == "delete") {
       let input = document.querySelector('#input');
+     
       this.string="delete";
       var all_options = document.getElementById("method-input").options;
       for (var i = 0; i < all_options.length; i++) {
@@ -75,12 +76,9 @@ class EditMenu {
           all_options[i].selected = true;
         }
       }
-      this.Fakebox = document.createElement('input');
-      this.Fakebox.setAttribute("type", "text");
-      this.Fakebox.setAttribute("id", "fake");
-      this.Fakebox.setAttribute("style", "border: 3px #FFAC55 solid");
       input.textContent = "Delete name : ";
-      input.appendChild(this.Fakebox);
+      if(this.times==1)
+        this.preDel();
     }
     else if (input == "new friend") {
       
@@ -93,12 +91,13 @@ class EditMenu {
         }
       }
       if(this.times==0){
-      this.PostBox("owner","me");
-      this.PostBox("name","GAGA");
-      this.PostBox("email","LL##LL");
-      this.PostBox("number","3333");
+      this.PostBox("owner","");
+      this.PostBox("name","");
+      this.PostBox("email","");
+      this.PostBox("number","");
       this.times=1; 
       }     
+      this.prePost();
     }
     else{
       history.go(0);
@@ -135,21 +134,80 @@ class EditMenu {
     key.type = 'text';
     key.className = 'key';
     key.placeholder = 'key';
-  //  key.value=input;
     key.setAttribute("value",input);
+    key.setAttribute("id",input);
 
     const value = document.createElement('input');
     value.type = 'text';
     value.className = 'value';
     value.placeholder = 'value';
-   // value.value=input2;
     value.setAttribute("value",input2);
+    value.setAttribute("id",input+"v");
 
     container.append(key);
     container.append(' : ');
     container.append(value);
     const keysContainer = document.querySelector('#key-values');
     keysContainer.append(container);
+  }
+  preDel()
+  {
+    let input = document.querySelector('#fake');
+    input.classList.remove('inactive'); 
+    let fake = document.querySelector('#input');
+    fake.classList.remove('inactive'); 
+    document.querySelector('#key-values').setAttribute("class","inactive");
+    let init1 = document.querySelector('#name');
+    let init2 = document.querySelector('#email');
+    let init3 = document.querySelector('#number');
+    let init4 = document.querySelector('#owner');
+
+    init1.setAttribute("value","");
+    init2.setAttribute("value","");
+    init3.setAttribute("value","");
+    init4.setAttribute("value","");
+
+    let v1 = document.querySelector('#namev');
+    let v2 = document.querySelector('#emailv');
+    let v3 = document.querySelector('#numberv');
+    let v4 = document.querySelector('#ownerv');
+    v1.setAttribute("value","");
+    v2.setAttribute("value","");
+    v3.setAttribute("value","");
+    v4.setAttribute("value","");
+  }
+  prePost()
+  {
+    document.querySelector('#key-values').classList.remove('inactive');
+    let bodyrow = document.querySelector('.body-row');
+    bodyrow.classList.add('inactive');
+
+    let init1 = document.querySelector('#name');
+    let init2 = document.querySelector('#email');
+    let init3 = document.querySelector('#number');
+    let init4 = document.querySelector('#owner');
+    
+    init1.setAttribute("value","name");
+    init2.setAttribute("value","email");
+    init3.setAttribute("value","number");
+    init4.setAttribute("value","owner");
+
+    let v1 = document.querySelector('#namev');
+    let v2 = document.querySelector('#emailv');
+    let v3 = document.querySelector('#numberv');
+    let v4 = document.querySelector('#ownerv');
+    let uName = document.querySelector('#userName');
+    v1.setAttribute("value","");
+    v2.setAttribute("value","");
+    v3.setAttribute("value","");
+    v4.setAttribute("value",uName.value);
+
+    let input = document.querySelector('#fake');
+    input.classList.add('inactive'); 
+    let fake = document.querySelector('#input');
+    fake.classList.add('inactive'); 
+    let output = document.querySelector('#path-input');
+    output.setAttribute("value", "/api");
   }
 
 }
