@@ -37,14 +37,13 @@ async function onDelete(req, res) {
   const result = await sheet.getRows();
   const rows = result.rows;
   var del=0;
+  console.log(column);
   for (let i = 0; i < rows.length; i++) {
-    for (let j = 0; j < rows[i].length; j++) {
-      if (rows[i][j] == value) {
+      if (rows[i][0] == column && rows[i][1]==value) {
         await sheet.deleteRow(i);
         del=1;
         break;
       }   
-    }
     if(del==1)
      break;
   }

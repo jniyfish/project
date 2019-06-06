@@ -7,9 +7,9 @@
   <title>CS193x Final Project</title>
   <link rel="stylesheet" href="css/style.css" />
   <script src="js/script.js" defer></script>
-  <script src="app.js" defer></script>
-  <script src="class.js" defer></script>
-  <script src="main.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/class.js" defer></script>
+  <script src="js/main.js" defer></script>
 </head>
 
 <body>
@@ -63,7 +63,7 @@ your address book</p>
           </p>
         </section>
 
-      <form>
+        <form>
             <input type="text"  id="path-input" value="/api" class="inactive"/>
             <select id="method-input" class="inactive">
               <option id="GET">GET</option>
@@ -72,14 +72,12 @@ your address book</p>
             </select>
             <div id="key-values" >
             </div>
-            <input type="submit" value="submit" id="submit" />
-          </form>
+            <footer id="button">
+                <input type="submit" value="submit" id="submit" style="border: 3px #FFAC55 solid"/>
+              </footer>
+        </form>
 
-        <footer id="button">
-          <p>
-            <input type="submit" id="fetch-button" value="OK" style=" border: 3px #FFAC55 solid;" />
-          </p>
-        </footer>
+
       </article>
     </form>
 

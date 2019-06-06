@@ -127,6 +127,7 @@
 function getText() {
 
     var text = document.getElementById('fake').value; 
-    document.getElementById('path-input').value = "/api/name/" + text;
+    let uName = document.querySelector('#userName');
+    document.getElementById('path-input').value ="/api/"+uName.value+"/"+text;
 
 }
